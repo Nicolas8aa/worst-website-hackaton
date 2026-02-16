@@ -32,9 +32,9 @@ const testimonials = [
 ];
 
 const toastMessages = [
-  "AI is eating your RAM. Good luck building your new PC!",
-  "Water doesn’t matter if we can make Will Smith eat spaghetti.",
-  "Hey, check the White House — it’s on fire!! xd",
+  "Ai is eating your ram, good luck building your new pc!",
+  "Water does not matter, if we are able to create will smith eating spagetti",
+  "Hey, check the white house, is on fire!! xd",
   "Your moral compass was refactored into TODOs.",
   "Good news: the AI deleted your bugs. Bad news: it deleted your tests.",
 ];
@@ -92,13 +92,13 @@ export default function Home() {
     let hideId: number;
 
     const scheduleToast = () => {
-      const delay = 8000 + Math.random() * 4000;
+      const delay = 10000 + Math.random() * 6000;
       timeoutId = window.setTimeout(() => {
         const message =
           toastMessages[Math.floor(Math.random() * toastMessages.length)];
         setToastMessage(message);
         setToastVisible(true);
-        hideId = window.setTimeout(() => setToastVisible(false), 2500);
+        hideId = window.setTimeout(() => setToastVisible(false), 6000);
         scheduleToast();
       }, delay);
     };
@@ -112,8 +112,8 @@ export default function Home() {
   }, []);
 
   const handleDodgyHover = () => {
-    const offsetX = Math.floor(Math.random() * 60) - 30;
-    const offsetY = Math.floor(Math.random() * 40) - 20;
+    const offsetX = Math.floor(Math.random() * 260) - 130;
+    const offsetY = Math.floor(Math.random() * 160) - 80;
     setCollapseOffset({ x: offsetX, y: offsetY });
   };
 
@@ -154,26 +154,26 @@ export default function Home() {
         src="data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA="
       />
       <div
-        className={`sticky top-0 z-40 border-b-8 border-[#ff0000] bg-[#ffff00] px-4 shadow-[0_6px_0_#ff00ff] ${
-          headerCollapsed ? "py-2" : "py-4 md:py-6"
+        className={`border-b-8 border-[#ff0000] bg-[#ffff00] px-4 shadow-[0_6px_0_#ff00ff] ${
+          headerCollapsed ? "py-1" : "py-2"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl flex-col gap-3">
-          <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-[18px] uppercase tracking-[6px]">
+              <p className="text-[14px] uppercase tracking-[4px]">
                 The Worst Website Ever Hackathon
               </p>
               <h1
                 className={`font-bold text-[#ff00ff] shadow-loud ${
-                  headerCollapsed ? "text-[28px] md:text-[36px]" : "text-[40px] md:text-[58px]"
+                  headerCollapsed ? "text-[22px] md:text-[28px]" : "text-[30px] md:text-[38px]"
                 }`}
                 style={{ fontFamily: "Impact, fantasy" }}
               >
                 PromptOps™: The Future of Overengineering
               </h1>
             </div>
-            <nav className="flex flex-wrap gap-3 text-[16px]">
+            <nav className="flex flex-wrap gap-2 text-[14px]">
               <a href="#hero" className="border-4 border-[#ff0000] px-3 py-1">
                 Home
               </a>
@@ -189,8 +189,10 @@ export default function Home() {
             </nav>
             <button
               type="button"
-              className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-1 text-[16px] text-black"
+              className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-1 text-[14px] text-black"
               onMouseEnter={handleDodgyHover}
+              onMouseMove={handleDodgyHover}
+              onMouseOver={handleDodgyHover}
               onFocus={handleDodgyHover}
               onClick={() => setHeaderCollapsed((prev) => !prev)}
               style={{ transform: `translate(${collapseOffset.x}px, ${collapseOffset.y}px)` }}
@@ -198,13 +200,29 @@ export default function Home() {
               {headerCollapsed ? "Expand Header (if it lets you)" : "Collapse Header (good luck)"}
             </button>
           </div>
-          <div className="marquee border-4 border-[#ff0000] bg-[#00ffff] px-3 py-2 text-[16px] text-black">
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-1 text-[14px] text-black"
+              onClick={() => setDarkMode((prev) => !prev)}
+            >
+              {darkMode ? "Dark Mode: On" : "Dark Mode: Off"}
+            </button>
+            <button
+              type="button"
+              className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-1 text-[14px] text-black"
+              onClick={() => setMusicOn((prev) => !prev)}
+            >
+              Sound: {musicOn ? "On" : "Off"}
+            </button>
+          </div>
+          <div className="marquee border-4 border-[#ff0000] bg-[#00ffff] px-3 py-2 text-[14px] text-black">
             <span>
               Ship bugs at the speed of thought. • Now with 87% more
               hallucinations. • Because reading docs is cringe. •
             </span>
           </div>
-          <nav className="flex flex-wrap gap-3 text-[16px]">
+          <nav className="flex flex-wrap gap-2 text-[14px]">
             <a href="#hero" className="border-4 border-[#ff0000] px-3 py-1">
               Top
             </a>
@@ -301,82 +319,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="mx-auto max-w-6xl px-4 py-10">
-        <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Testimonials</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {testimonials.map((item) => (
-            <figure
-              key={item.name}
-              className="border-8 border-[#ff0000] bg-[#ffff00] p-4 text-black"
-            >
-              <blockquote className="text-[16px]">“{item.quote}”</blockquote>
-              <figcaption className="mt-3 text-[16px]">
-                <strong>{item.name}</strong> — {item.role}
-              </figcaption>
-              <p className="mt-2 text-[18px]">
-                ⭐⭐⭐⭐⭐ (terrible but addictive)
-              </p>
-            </figure>
-          ))}
-        </div>
-      </section>
-
-      <section id="pricing" className="mx-auto max-w-6xl px-4 py-10">
-        <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Pricing</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {[
-            { title: "Free", desc: "Includes 1 hallucination/day" },
-            { title: "Pro", desc: "Unlimited hallucinations" },
-            { title: "Enterprise", desc: "We hallucinate contracts too" },
-          ].map((tier) => (
-            <div
-              key={tier.title}
-              className="border-8 border-[#ff0000] bg-[#00ffff] p-5 text-black shadow-[6px_6px_0_#ff00ff]"
-            >
-              <div className="flex items-center justify-between">
-                <h3 className="text-[26px] font-bold text-[#ff00ff]">
-                  {tier.title}
-                </h3>
-                <span className="border-4 border-[#ff0000] bg-[#ffff00] px-2 py-1 text-[16px] font-bold">
-                  Best Value
-                </span>
-              </div>
-              <p className="mt-3 text-[16px]">{tier.desc}</p>
-              <button
-                type="button"
-                className="mt-4 w-full border-4 border-[#ff0000] bg-[#00ffff] px-3 py-2 text-[16px] text-black"
-              >
-                Start regretting now
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="faq" className="mx-auto max-w-6xl px-4 py-10">
-        <h2 className="text-[36px] text-[#ff00ff] shadow-loud">FAQ</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {[
-            "Is this safe?",
-            "Will it replace my team?",
-            "Is the AI sentient?",
-            "Does it ship on Fridays?",
-            "Can I cancel?",
-            "Will support answer?",
-          ].map((question, index) => (
-            <div
-              key={question}
-              className="border-8 border-[#ff0000] bg-[#ffff00] p-4 text-black"
-            >
-              <h3 className="text-[20px] font-bold">{question}</h3>
-              <p className="mt-2 text-[18px]">
-                {index % 3 === 0 ? "Yes." : index % 3 === 1 ? "YES" : "Yes ✅"}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section id="demo" className="mx-auto max-w-6xl px-4 py-10">
         <h2 className="text-[36px] text-[#ff00ff] shadow-loud">
           Live Demo: Revolutionary IDE Wrapper
@@ -463,6 +405,83 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="testimonials" className="mx-auto max-w-6xl px-4 py-10">
+        <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Testimonials</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {testimonials.map((item) => (
+            <figure
+              key={item.name}
+              className="border-8 border-[#ff0000] bg-[#ffff00] p-4 text-black"
+            >
+              <blockquote className="text-[16px]">“{item.quote}”</blockquote>
+              <figcaption className="mt-3 text-[16px]">
+                <strong>{item.name}</strong> — {item.role}
+              </figcaption>
+              <p className="mt-2 text-[18px]">
+                ⭐⭐⭐⭐⭐ (terrible but addictive)
+              </p>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section id="pricing" className="mx-auto max-w-6xl px-4 py-10">
+        <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Pricing</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {[
+            { title: "Free", desc: "Includes 1 hallucination/day" },
+            { title: "Pro", desc: "Unlimited hallucinations" },
+            { title: "Enterprise", desc: "We hallucinate contracts too" },
+          ].map((tier) => (
+            <div
+              key={tier.title}
+              className="border-8 border-[#ff0000] bg-[#00ffff] p-5 text-black shadow-[6px_6px_0_#ff00ff]"
+            >
+              <div className="flex items-center justify-between">
+                <h3 className="text-[26px] font-bold text-[#ff00ff]">
+                  {tier.title}
+                </h3>
+                <span className="border-4 border-[#ff0000] bg-[#ffff00] px-2 py-1 text-[16px] font-bold">
+                  Best Value
+                </span>
+              </div>
+              <p className="mt-3 text-[16px]">{tier.desc}</p>
+              <button
+                type="button"
+                className="mt-4 w-full border-4 border-[#ff0000] bg-[#00ffff] px-3 py-2 text-[16px] text-black"
+              >
+                Start regretting now
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="faq" className="mx-auto max-w-6xl px-4 py-10">
+        <h2 className="text-[36px] text-[#ff00ff] shadow-loud">FAQ</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {[
+            "Is this safe?",
+            "Will it replace my team?",
+            "Is the AI sentient?",
+            "Does it ship on Fridays?",
+            "Can I cancel?",
+            "Will support answer?",
+          ].map((question, index) => (
+            <div
+              key={question}
+              className="border-8 border-[#ff0000] bg-[#ffff00] p-4 text-black"
+            >
+              <h3 className="text-[20px] font-bold">{question}</h3>
+              <p className="mt-2 text-[18px]">
+                {index % 3 === 0 ? "Yes." : index % 3 === 1 ? "YES" : "Yes ✅"}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
       <section
         id="under-construction"
         className="mx-auto max-w-6xl px-4 py-10"
@@ -526,7 +545,7 @@ export default function Home() {
 
       {toastVisible ? (
         <div
-          className="fixed bottom-6 left-6 z-50 border-8 border-[#ff0000] bg-[#ffff00] px-4 py-2 text-[16px] text-black"
+          className="fixed bottom-6 left-6 z-50 border-8 border-[#ff0000] bg-[#ffff00] px-4 py-2 text-[16px] text-black dark-mode-floating"
           role="status"
         >
           {toastMessage}
@@ -535,7 +554,7 @@ export default function Home() {
 
       <button
         type="button"
-        className="fixed bottom-20 left-1/2 z-40 -translate-x-1/2 border-8 border-[#ff0000] bg-[#00ffff] px-4 py-2 text-[16px] text-black"
+        className="fixed bottom-20 left-1/2 z-40 -translate-x-1/2 border-8 border-[#ff0000] bg-[#00ffff] px-4 py-2 text-[16px] text-black dark-mode-floating"
         onClick={handleBackToTop}
       >
         Back to Top (maybe sideways first)
