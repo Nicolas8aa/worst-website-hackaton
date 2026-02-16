@@ -17,6 +17,7 @@ The template now includes a single-page “Worst Website Ever” hackathon site 
 - [x] Added intentionally “bad UI/UX” homepage content about AI overbuilding
 - [x] Built the “Worst Website Ever” hackathon page with sections, chaotic layout, and faux onboarding
 - [x] Added client-side interactivity for fake onboarding, toasts, cookie popup, and dark mode
+- [x] Fixed build by escaping ASCII art backticks in the under-construction section
 
 ## Current Structure
 
@@ -86,3 +87,4 @@ export async function GET() {
 | 2026-02-16 | Added intentionally “worst website” homepage about AI overbuilding |
 | 2026-02-16 | Built the full hackathon single-page parody with ugly styling + fake onboarding UX |
 | 2026-02-16 | Added interactive bad-UX behaviors (toast, cookie popup, modal, dodgy submit) |
+| 2026-02-16 | Fixed Next.js build error caused by ASCII art backticks in page content |

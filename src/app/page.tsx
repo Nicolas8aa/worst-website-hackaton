@@ -588,10 +588,10 @@ export default function Home() {
               Under Construction
             </h2>
             <pre className="mt-4 overflow-auto text-[16px] font-mono">
-{`   _._     _,-'""`-._
-  (,-.`._,'(       |\\`-/|
-      `-.-' \ )-`( , o o)
-            `-    \`_`"'-
+{`   _._     _,-'""\`-._
+  (,-.\`._,'(       |\\\`-/|
+      \`-.-' \\ )-\`( , o o)
+            \`-    \\\`_\`"'-
 `}
             </pre>
             <p className="mt-2 text-[16px]">
