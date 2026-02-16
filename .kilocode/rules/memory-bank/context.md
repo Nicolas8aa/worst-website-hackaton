@@ -24,6 +24,7 @@ The template now includes a single-page “Worst Website Ever” hackathon site 
 - [x] Made header non-sticky, more compact, and moved dark mode/sound toggles into it
 - [x] Moved live demo under the hero section and extended toast timing with new messages
 - [x] Improved header dodge behavior and fixed dark mode floating elements
+- [x] Fixed dark mode filtering on floating UI and restructured landing page to lead with full-width IDE demo
 
 ## Current Structure
 
@@ -96,3 +97,4 @@ export async function GET() {
 | 2026-02-16 | Fixed Next.js build error caused by ASCII art backticks in page content |
 | 2026-02-16 | Shrunk header with evasive collapse toggle, added AI agent demo, removed feature cards, refreshed toast jokes |
 | 2026-02-16 | Compact non-sticky header, repositioned demo, longer toasts, dark mode floating fix |
+| 2026-02-16 | Fixed dark mode floating UI behavior and made IDE demo the first, full-width landing section |
