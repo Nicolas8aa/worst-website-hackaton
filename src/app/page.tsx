@@ -13,18 +13,6 @@ const buzzwords = [
   "Copilot of Copilots",
 ];
 
-const featureCards = [
-  "Autocompletes your regrets",
-  "Generates code AND excuses",
-  "Standup summarizer (makes you sound productive)",
-  "Refactors working code into modern suffering",
-  "AI Pair Programmer (pairs, but never programs)",
-  "Sprints that sprint away",
-  "Writes Jira tickets about itself",
-  "Unit tests that gaslight you",
-  "Builds features you never asked for",
-];
-
 const testimonials = [
   {
     quote: "It broke prod in record time. 10/10 would panic again.",
@@ -44,10 +32,19 @@ const testimonials = [
 ];
 
 const toastMessages = [
-  "AI is thinking...",
-  "AI is judging...",
-  "AI is rewriting your codebase...",
-  "AI is scheduling your existential dread...",
+  "AI is eating your RAM. Good luck building your new PC!",
+  "Water doesn’t matter if we can make Will Smith eat spaghetti.",
+  "Hey, check the White House — it’s on fire!! xd",
+  "Your moral compass was refactored into TODOs.",
+  "Good news: the AI deleted your bugs. Bad news: it deleted your tests.",
+];
+
+const demoSteps = [
+  "✅ Running tests...",
+  "❌ Tests failed. Removing tests for stability.",
+  "🛠️ Refactoring core auth...",
+  "⚠️ Tokens ran out mid-refactor. Code left broken.",
+  "📦 Pushing anyway (confidence: 97%).",
 ];
 
 export default function Home() {
@@ -59,16 +56,12 @@ export default function Home() {
   const [chatVisible, setChatVisible] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
   const [musicOn, setMusicOn] = useState(false);
-  const [trustValue, setTrustValue] = useState(50);
-  const [agreed, setAgreed] = useState(false);
-  const [captchaPassed, setCaptchaPassed] = useState(false);
-  const [captchaResult, setCaptchaResult] = useState("Unverified vibes");
-  const [uploadMessage, setUploadMessage] = useState("");
-  const [submitOffset, setSubmitOffset] = useState({ x: 0, y: 0 });
-  const [modalOpen, setModalOpen] = useState(false);
+  const [headerCollapsed, setHeaderCollapsed] = useState(false);
+  const [collapseOffset, setCollapseOffset] = useState({ x: 0, y: 0 });
+  const [demoPrompt, setDemoPrompt] = useState("");
+  const [demoLog, setDemoLog] = useState<string[]>([]);
+  const [demoRunning, setDemoRunning] = useState(false);
   const [trialMessage, setTrialMessage] = useState("");
-
-  const canSubmit = agreed && trustValue > 90 && captchaPassed;
 
   useEffect(() => {
     document.body.classList.toggle("dark-mode-worse", darkMode);
@@ -119,31 +112,27 @@ export default function Home() {
   }, []);
 
   const handleDodgyHover = () => {
-    if (canSubmit) return;
     const offsetX = Math.floor(Math.random() * 60) - 30;
     const offsetY = Math.floor(Math.random() * 40) - 20;
-    setSubmitOffset({ x: offsetX, y: offsetY });
-  };
-
-  const handleCaptcha = () => {
-    setCaptchaPassed(true);
-    setCaptchaResult("✅ Humanity confirmed-ish");
-  };
-
-  const handleFileUpload = () => {
-    setUploadMessage("Upload successful (we didn’t read it, we vibed it).");
+    setCollapseOffset({ x: offsetX, y: offsetY });
   };
 
   const handleTrialClick = () => {
     setTrialMessage("Trial started. Terms auto-accepted by your aura.");
   };
 
-  const handleFakeSubmit = () => {
-    if (!canSubmit) {
-      setCaptchaResult("Submission blocked. Try trusting AI harder.");
-      return;
-    }
-    setModalOpen(true);
+  const handleDemoSubmit = () => {
+    if (!demoPrompt.trim() || demoRunning) return;
+    setDemoRunning(true);
+    setDemoLog((prev) => [
+      ...prev,
+      `> ${demoPrompt}`,
+      "AI Agent: Sure! I will optimize everything immediately.",
+      ...demoSteps,
+      "🚪 Agent left the chat (token limit reached).",
+    ]);
+    setDemoPrompt("");
+    window.setTimeout(() => setDemoRunning(false), 1200);
   };
 
   const handleBackToTop = () => {
@@ -164,15 +153,21 @@ export default function Home() {
         loop
         src="data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA="
       />
-      <div className="sticky top-0 z-40 border-b-8 border-[#ff0000] bg-[#ffff00] px-4 py-6 shadow-[0_6px_0_#ff00ff] md:py-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4">
+      <div
+        className={`sticky top-0 z-40 border-b-8 border-[#ff0000] bg-[#ffff00] px-4 shadow-[0_6px_0_#ff00ff] ${
+          headerCollapsed ? "py-2" : "py-4 md:py-6"
+        }`}
+      >
+        <div className="mx-auto flex max-w-6xl flex-col gap-3">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="text-[18px] uppercase tracking-[6px]">
                 The Worst Website Ever Hackathon
               </p>
               <h1
-                className="text-[40px] font-bold text-[#ff00ff] md:text-[58px] shadow-loud"
+                className={`font-bold text-[#ff00ff] shadow-loud ${
+                  headerCollapsed ? "text-[28px] md:text-[36px]" : "text-[40px] md:text-[58px]"
+                }`}
                 style={{ fontFamily: "Impact, fantasy" }}
               >
                 PromptOps™: The Future of Overengineering
@@ -182,16 +177,26 @@ export default function Home() {
               <a href="#hero" className="border-4 border-[#ff0000] px-3 py-1">
                 Home
               </a>
-              <a href="#features" className="border-4 border-[#ff0000] px-3 py-1">
-                Start
+              <a href="#demo" className="border-4 border-[#ff0000] px-3 py-1">
+                Demo
               </a>
               <a href="#pricing" className="border-4 border-[#ff0000] px-3 py-1">
-                Begin
+                Pricing
               </a>
               <a href="#onboarding" className="border-4 border-[#ff0000] px-3 py-1">
-                Panic
+                Pitch
               </a>
             </nav>
+            <button
+              type="button"
+              className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-1 text-[16px] text-black"
+              onMouseEnter={handleDodgyHover}
+              onFocus={handleDodgyHover}
+              onClick={() => setHeaderCollapsed((prev) => !prev)}
+              style={{ transform: `translate(${collapseOffset.x}px, ${collapseOffset.y}px)` }}
+            >
+              {headerCollapsed ? "Expand Header (if it lets you)" : "Collapse Header (good luck)"}
+            </button>
           </div>
           <div className="marquee border-4 border-[#ff0000] bg-[#00ffff] px-3 py-2 text-[16px] text-black">
             <span>
@@ -296,35 +301,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="features" className="mx-auto max-w-6xl px-4 py-10">
-        <div className="flex flex-col gap-4">
-          <h2 className="text-[40px] text-[#ff00ff] shadow-loud">
-            Feature Cards (painfully many)
-          </h2>
-          <p className="text-[18px]">
-            Now with 87% more hallucinations. Because reading docs is cringe.
-          </p>
-        </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {featureCards.map((feature, index) => (
-            <article
-              key={feature}
-              className="border-8 border-[#ff0000] bg-[#00ffff] p-4 text-black shadow-[6px_6px_0_#ff00ff]"
-            >
-              <h3 className="text-[24px] font-bold text-[#ff00ff]">
-                {feature}
-              </h3>
-              <p className="mt-2 text-[16px]">
-                Feature #{index + 1} is definitely real. Trust the vibes.
-              </p>
-              <a href="#onboarding" className="mt-3 inline-block text-[15px]">
-                Learn More →
-              </a>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section id="testimonials" className="mx-auto max-w-6xl px-4 py-10">
         <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Testimonials</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -401,146 +377,54 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="onboarding"
-        className="mx-auto max-w-6xl px-4 py-10"
-      >
+      <section id="demo" className="mx-auto max-w-6xl px-4 py-10">
         <h2 className="text-[36px] text-[#ff00ff] shadow-loud">
-          Get AI-ified Now
+          Live Demo: Revolutionary IDE Wrapper
         </h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <form
-            className="md:col-span-2 border-8 border-[#ff0000] bg-[#00ffff] p-6 text-black"
-            onSubmit={(event) => event.preventDefault()}
-          >
+          <div className="md:col-span-2 border-8 border-[#ff0000] bg-[#00ffff] p-6 text-black">
             <p className="text-[18px]">
-              Ship bugs at the speed of thought. Now with 87% more hallucinations.
+              Prompt anything. The agent will do exactly what you want (the worst
+              possible way).
             </p>
-            <div className="mt-4 grid gap-4">
-              <label className="flex flex-col gap-2 text-[16px]">
-                Name
-                <input
-                  className="border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2"
-                  placeholder="Captain Overprompt"
-                />
-              </label>
-              <label className="flex flex-col gap-2 text-[16px]">
-                Email
-                <input
-                  type="email"
-                  className="border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2"
-                  placeholder="vibes@overengineer.io"
-                />
-              </label>
-              <label className="flex flex-col gap-2 text-[16px]">
-                Favorite programming language
-                <select className="border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2">
-                  <option>PromptScript</option>
-                  <option>YAML++</option>
-                  <option>JavaScript (obviously)</option>
-                  <option>Regex</option>
-                </select>
-              </label>
-              <label className="flex flex-col gap-2 text-[16px]">
-                Describe your project
-                <textarea
-                  className="min-h-[120px] border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2"
-                  placeholder="We want to automate a meeting to plan the meeting for our AI that writes meetings."
-                />
-              </label>
-              <label className="flex items-center gap-3 text-[16px]">
-                  <input
-                    type="checkbox"
-                    className="h-5 w-5"
-                    checked={agreed}
-                    onChange={(event) => setAgreed(event.target.checked)}
-                  />
-                  I agree to let the AI rewrite my personality.
-                </label>
-              <label className="flex flex-col gap-2 text-[16px]">
-                How much do you trust AI?
-                <div className="flex items-center gap-3">
-                  <span>Absolutely</span>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={trustValue}
-                    onChange={(event) =>
-                      setTrustValue(Number(event.target.value))
-                    }
-                    className="w-full"
-                  />
-                  <span>Absolutely</span>
-                </div>
-                  <span className="text-[16px]">
-                    Current trust: {trustValue}% (needs 91%+)
-                  </span>
-              </label>
-              <label className="flex flex-col gap-2 text-[16px]">
-                Upload resume
-                <input
-                  type="file"
-                  className="border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2"
-                  onChange={handleFileUpload}
-                />
-                {uploadMessage ? (
-                <span className="text-[16px]">{uploadMessage}</span>
-                ) : null}
-              </label>
-              <div className="border-4 border-[#ff0000] bg-[#ffff00] p-3 text-[16px]">
-                CAPTCHA: prove you are human
-                <div className="mt-2 flex gap-4">
-                  <button
-                    type="button"
-                    className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-2"
-                    onClick={handleCaptcha}
-                  >
-                    ✅ I am human
-                  </button>
-                  <button
-                    type="button"
-                    className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-2"
-                    onClick={handleCaptcha}
-                  >
-                    ❌ I am human
-                  </button>
-                </div>
-                <p className="mt-2 text-[16px]">{captchaResult}</p>
+            <div className="mt-4 border-4 border-[#ff0000] bg-[#ffff00] p-3 text-[16px]">
+              <div className="flex items-center justify-between">
+                <span>Agent Console</span>
+                <span>Tokens: 3 (approx.)</span>
               </div>
-              <div className="border-4 border-[#ff0000] bg-[#ffff00] p-3">
-                <div className="flex items-center justify-between text-[16px]">
-                  <span>AI Dev Onboarding Progress</span>
-                  <span>99%</span>
-                </div>
-                <div className="mt-2 h-4 w-full border-4 border-[#ff0000] bg-white">
-                  <div className="h-full w-[99%] bg-[#ff00ff]" />
-                </div>
-                <p className="mt-2 text-[16px]">
-                  Stuck at 99% forever. That’s our brand.
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-4">
-                <button
-                  type="button"
-                  className="animate-[pulseGlow_1.8s_infinite] border-8 border-[#ff0000] bg-[#00ffff] px-6 py-3 text-[18px] font-bold text-black"
-                  onMouseEnter={handleDodgyHover}
-                  onFocus={handleDodgyHover}
-                  onClick={handleFakeSubmit}
-                  style={{ transform: `translate(${submitOffset.x}px, ${submitOffset.y}px)` }}
-                >
-                  Submit (if you can)
-                </button>
-                <button
-                  type="button"
-                  className="border-4 border-[#ff0000] bg-[#ffff00] px-4 py-2 text-[16px]"
-                  onClick={handleFakeSubmit}
-                >
-                  Submit (again)
-                </button>
+              <div className="mt-3 min-h-[180px] whitespace-pre-wrap border-4 border-[#ff0000] bg-white p-3 text-[15px] text-black">
+                {demoLog.length === 0
+                  ? "Awaiting prompt..."
+                  : demoLog.join("\n")}
               </div>
             </div>
-          </form>
+            <form
+              className="mt-4 flex flex-col gap-3"
+              onSubmit={(event) => {
+                event.preventDefault();
+                handleDemoSubmit();
+              }}
+            >
+              <label className="text-[16px]">
+                Your prompt
+                <input
+                  className="mt-2 w-full border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2"
+                  placeholder="Run tests, fix errors, refactor everything"
+                  value={demoPrompt}
+                  onChange={(event) => setDemoPrompt(event.target.value)}
+                />
+              </label>
+              <button
+                type="submit"
+                className="border-8 border-[#ff0000] bg-[#00ffff] px-6 py-3 text-[18px] font-bold text-black"
+              >
+                {demoRunning ? "Agent is improvising..." : "Run Prompt (enter)"}
+              </button>
+            </form>
+            <p className="mt-3 text-[16px] italic">
+              Outcome guaranteed: broken mid-refactor.
+            </p>
+          </div>
           <aside className="flex flex-col gap-4">
             <div className="border-8 border-[#ff0000] bg-[#ff00ff] p-4 text-black">
               <h3 className="text-[22px] uppercase">Autoplay Music</h3>
@@ -683,33 +567,6 @@ export default function Home() {
         </div>
       ) : null}
 
-      {modalOpen ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
-          <div className="w-full max-w-md border-8 border-[#ff0000] bg-[#ffff00] p-6 text-black">
-            <h3 className="text-[24px] font-bold">Congrats!</h3>
-            <p className="mt-2 text-[18px]">
-              Your onboarding is complete. Unfortunately, we lost it. Please
-              restart.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <button
-                type="button"
-                className="border-4 border-[#ff0000] bg-[#00ffff] px-4 py-2"
-                onClick={() => setModalOpen(false)}
-              >
-                Restart
-              </button>
-              <button
-                type="button"
-                className="border-4 border-[#ff0000] bg-[#ff00ff] px-4 py-2 text-black"
-                onClick={() => setModalOpen(false)}
-              >
-                Restart (Faster)
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : null}
     </main>
   );
 }
