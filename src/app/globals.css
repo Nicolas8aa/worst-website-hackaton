@@ -1,1 +1,101 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: "Comic Sans MS", "Papyrus", Impact, system-ui, sans-serif;
+  background: #ffff00;
+  color: #0000ff;
+  overflow-x: hidden;
+}
+
+body.dark-mode-worse {
+  background: #120012;
+  color: #00ff00;
+  filter: hue-rotate(120deg) saturate(2.2);
+}
+
+a {
+  color: #00ff00;
+  text-decoration: underline;
+}
+
+.blink {
+  animation: blink 0.9s steps(2, start) infinite;
+}
+
+.ticker {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ticker > span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker 12s linear infinite;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee > span {
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+.shadow-loud {
+  text-shadow: 3px 3px 0 #ff0000, -3px -3px 0 #00ffff;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-1deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1deg) translateY(-2px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(0, 255, 255, 0.2);
+  }
+}
