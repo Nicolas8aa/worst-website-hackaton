@@ -366,7 +366,7 @@ export default function Home() {
           </div>
         </section>
 
-      <section id="testimonials" className="mx-auto max-w-6xl px-4 py-10">
+        <section id="testimonials" className="mx-auto max-w-6xl px-4 py-10">
         <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Testimonials</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {testimonials.map((item) => (
@@ -384,9 +384,9 @@ export default function Home() {
             </figure>
           ))}
         </div>
-      </section>
+        </section>
 
-      <section id="pricing" className="mx-auto max-w-6xl px-4 py-10">
+        <section id="pricing" className="mx-auto max-w-6xl px-4 py-10">
         <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Pricing</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
@@ -416,9 +416,9 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+        </section>
 
-      <section id="faq" className="mx-auto max-w-6xl px-4 py-10">
+        <section id="faq" className="mx-auto max-w-6xl px-4 py-10">
         <h2 className="text-[36px] text-[#ff00ff] shadow-loud">FAQ</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
@@ -440,13 +440,12 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+        </section>
 
-
-      <section
-        id="under-construction"
-        className="mx-auto max-w-6xl px-4 py-10"
-      >
+        <section
+          id="under-construction"
+          className="mx-auto max-w-6xl px-4 py-10"
+        >
           <div className="border-8 border-[#ff0000] bg-[#ffff00] p-6 text-black">
             <h2 className="text-[34px] text-[#ff00ff] shadow-loud">
               Under Construction
@@ -464,88 +463,89 @@ export default function Home() {
           </div>
         </section>
 
-      <footer className="mt-10 border-t-8 border-[#ff0000] bg-[#00ffff] px-4 py-8 text-black">
-        <div className="mx-auto max-w-6xl text-[16px]">
-          <p>
-            Ship bugs at the speed of thought. Now with 87% more hallucinations.
-            Because reading docs is cringe.
-          </p>
-          <p className="mt-2">
-            © 2026 Worst Website Ever. All vibes, no warranty.
-          </p>
-        </div>
-      </footer>
+        <footer className="mt-10 border-t-8 border-[#ff0000] bg-[#00ffff] px-4 py-8 text-black">
+          <div className="mx-auto max-w-6xl text-[16px]">
+            <p>
+              Ship bugs at the speed of thought. Now with 87% more hallucinations.
+              Because reading docs is cringe.
+            </p>
+            <p className="mt-2">
+              © 2026 Worst Website Ever. All vibes, no warranty.
+            </p>
+          </div>
+        </footer>
 
-      {chatVisible ? (
-        <div
-          className="fixed bottom-6 right-6 z-50 w-[220px] border-8 border-[#ff0000] bg-[#00ffff] p-3 text-[16px] text-black shadow-[6px_6px_0_#ff00ff]"
-          role="status"
-        >
-          <div className="flex items-start justify-between gap-2">
-            <div>
-              <p className="font-bold">Chat with an Agent</p>
-              <p className="mt-1">We are typing… forever.</p>
+        {chatVisible ? (
+          <div
+            className="fixed bottom-6 right-6 z-50 w-[220px] border-8 border-[#ff0000] bg-[#00ffff] p-3 text-[16px] text-black shadow-[6px_6px_0_#ff00ff]"
+            role="status"
+          >
+            <div className="flex items-start justify-between gap-2">
+              <div>
+                <p className="font-bold">Chat with an Agent</p>
+                <p className="mt-1">We are typing… forever.</p>
+              </div>
+              <button
+                type="button"
+                className="border-4 border-[#ff0000] bg-[#ffff00] px-2 py-1 text-[16px] sm:hidden"
+                onClick={() => setChatVisible(false)}
+              >
+                X
+              </button>
             </div>
             <button
               type="button"
-              className="border-4 border-[#ff0000] bg-[#ffff00] px-2 py-1 text-[16px] sm:hidden"
+              className="mt-2 w-full border-4 border-[#ff0000] bg-[#ffff00] px-2 py-1"
               onClick={() => setChatVisible(false)}
             >
-              X
+              Minimize (maybe)
             </button>
           </div>
-          <button
-            type="button"
-            className="mt-2 w-full border-4 border-[#ff0000] bg-[#ffff00] px-2 py-1"
-            onClick={() => setChatVisible(false)}
+        ) : null}
+
+        {toastVisible ? (
+          <div
+            className="fixed bottom-6 left-6 z-50 border-8 border-[#ff0000] bg-[#ffff00] px-4 py-2 text-[16px] text-black"
+            role="status"
           >
-            Minimize (maybe)
-          </button>
-        </div>
-      ) : null}
-
-      {toastVisible ? (
-        <div
-          className="fixed bottom-6 left-6 z-50 border-8 border-[#ff0000] bg-[#ffff00] px-4 py-2 text-[16px] text-black"
-          role="status"
-        >
-          {toastMessage}
-        </div>
-      ) : null}
-
-      <button
-        type="button"
-        className="fixed bottom-20 left-1/2 z-40 -translate-x-1/2 border-8 border-[#ff0000] bg-[#00ffff] px-4 py-2 text-[16px] text-black"
-        onClick={handleBackToTop}
-      >
-        Back to Top (maybe sideways first)
-      </button>
-      {cookieVisible ? (
-        <div className="fixed left-1/2 top-24 z-50 w-[90%] max-w-md -translate-x-1/2 border-8 border-[#ff0000] bg-[#00ffff] p-4 text-black shadow-[6px_6px_0_#ff00ff]">
-          <p className="text-[18px] font-bold">Accept Cookies?</p>
-          <p className="mt-2 text-[16px]">Flavor preference required.</p>
-          <p className="mt-2 text-[16px] text-[#ff00ff]">{cookieMessage}</p>
-          <div className="mt-3 flex flex-wrap gap-3">
-            {[
-              "Chocolate Chip",
-              "Midnight YAML",
-              "Token Crumble",
-            ].map((flavor) => (
-              <button
-                key={flavor}
-                type="button"
-                className="border-4 border-[#ff0000] bg-[#ffff00] px-3 py-1 text-[16px]"
-                onClick={() => {
-                  setCookieMessage(`Accepted ${flavor} cookies.`);
-                  setTimeout(() => setCookieVisible(false), 600);
-                }}
-              >
-                {flavor}
-              </button>
-            ))}
+            {toastMessage}
           </div>
-        </div>
-      ) : null}
+        ) : null}
+
+        <button
+          type="button"
+          className="fixed bottom-20 left-1/2 z-40 -translate-x-1/2 border-8 border-[#ff0000] bg-[#00ffff] px-4 py-2 text-[16px] text-black"
+          onClick={handleBackToTop}
+        >
+          Back to Top (maybe sideways first)
+        </button>
+        {cookieVisible ? (
+          <div className="fixed left-1/2 top-24 z-50 w-[90%] max-w-md -translate-x-1/2 border-8 border-[#ff0000] bg-[#00ffff] p-4 text-black shadow-[6px_6px_0_#ff00ff]">
+            <p className="text-[18px] font-bold">Accept Cookies?</p>
+            <p className="mt-2 text-[16px]">Flavor preference required.</p>
+            <p className="mt-2 text-[16px] text-[#ff00ff]">{cookieMessage}</p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              {[
+                "Chocolate Chip",
+                "Midnight YAML",
+                "Token Crumble",
+              ].map((flavor) => (
+                <button
+                  key={flavor}
+                  type="button"
+                  className="border-4 border-[#ff0000] bg-[#ffff00] px-3 py-1 text-[16px]"
+                  onClick={() => {
+                    setCookieMessage(`Accepted ${flavor} cookies.`);
+                    setTimeout(() => setCookieVisible(false), 600);
+                  }}
+                >
+                  {flavor}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </div>
 
     </main>
   );
