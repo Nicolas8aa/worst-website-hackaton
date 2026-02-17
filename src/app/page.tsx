@@ -238,7 +238,7 @@ export default function Home() {
         </div>
 
         <div className="page-content">
-          <section id="overview" className="mx-auto max-w-6xl px-4 pb-10 pt-8">
+          <section id="overview" className="section-block section-a mx-auto max-w-6xl px-4 pb-10 pt-8">
             <div className="grid gap-6 md:grid-cols-3">
               <div className="md:col-span-2 border-8 border-[#ff0000] bg-[#00ffff] p-6 text-black shadow-[8px_8px_0_#ff00ff]">
                 <p className="text-[18px] uppercase tracking-[4px]">
@@ -300,6 +300,11 @@ export default function Home() {
                   <p className="blink mt-2 text-[18px] font-bold">
                     Now with 87% more nostalgia.
                   </p>
+                  <img
+                    src="/reference1.png"
+                    alt="Desktop chaos proof"
+                    className="mt-3 w-full border-4 border-[#ff0000]"
+                  />
                 </div>
                 <div className="border-8 border-[#ff0000] bg-[#00ffff] p-4 text-black">
                   <h3 className="text-[22px] uppercase">Painfully Efficient</h3>
@@ -312,61 +317,90 @@ export default function Home() {
                   <p className="text-[16px]">
                     AI sidekicks taped to your IDE with digital duct tape.
                   </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="hero" className="mx-auto max-w-6xl px-4 pb-10">
-            <h2 className="text-[36px] text-[#ff00ff] shadow-loud">
-              Live Demo: New IDE in Action
-            </h2>
-            <div className="mt-6 border-8 border-[#ff0000] bg-[#00ffff] p-6 text-black shadow-[8px_8px_0_#ff00ff]">
-              <p className="text-[18px]">
-                Prompt anything. The IDE will do exactly what you want (the worst
-                possible way).
-              </p>
-              <div className="mt-4 border-4 border-[#ff0000] bg-[#ffff00] p-3 text-[16px]">
-                <div className="flex items-center justify-between">
-                  <span>Agent Console</span>
-                  <span>Tokens: 3 (approx.)</span>
-                </div>
-                <div className="mt-3 min-h-[200px] whitespace-pre-wrap border-4 border-[#ff0000] bg-white p-3 text-[15px] text-black">
-                  {demoLog.length === 0
-                    ? "Awaiting prompt..."
-                    : demoLog.join("\n")}
-                </div>
-              </div>
-              <form
-                className="mt-4 flex flex-col gap-3"
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  handleDemoSubmit();
-                }}
-              >
-                <label className="text-[16px]">
-                  Your prompt
-                  <input
-                    className="mt-2 w-full border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2"
-                    placeholder="Open new IDE, ship the feature, reboot feelings"
-                    value={demoPrompt}
-                    onChange={(event) => setDemoPrompt(event.target.value)}
+                  <img
+                    src="/reference2.png"
+                    alt="Agent stack screenshot"
+                    className="mt-3 w-full border-4 border-[#ff0000]"
                   />
-                </label>
-                <button
-                  type="submit"
-                  className="border-8 border-[#ff0000] bg-[#00ffff] px-6 py-3 text-[18px] font-bold text-black"
-                >
-                  {demoRunning ? "IDE is improvising..." : "Run Prompt (enter)"}
-                </button>
-              </form>
-              <p className="mt-3 text-[16px] italic">
-                Outcome guaranteed: broken mid-refactor.
-              </p>
+                </div>
+              </div>
             </div>
           </section>
 
-          <section id="testimonials" className="mx-auto max-w-6xl px-4 py-10">
+          <section id="hero" className="section-block section-b mx-auto max-w-6xl px-4 pb-10">
+            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <div>
+                <h2 className="text-[36px] text-[#ff00ff] shadow-loud">
+                  Live Demo: New IDE in Action
+                </h2>
+                <div className="mt-6 border-8 border-[#ff0000] bg-[#00ffff] p-6 text-black shadow-[8px_8px_0_#ff00ff]">
+                  <p className="text-[18px]">
+                    Prompt anything. The IDE will do exactly what you want (the worst
+                    possible way).
+                  </p>
+                  <div className="mt-4 border-4 border-[#ff0000] bg-[#ffff00] p-3 text-[16px]">
+                    <div className="flex items-center justify-between">
+                      <span>Agent Console</span>
+                      <span>Tokens: 3 (approx.)</span>
+                    </div>
+                    <div className="mt-3 min-h-[200px] whitespace-pre-wrap border-4 border-[#ff0000] bg-white p-3 text-[15px] text-black">
+                      {demoLog.length === 0
+                        ? "Awaiting prompt..."
+                        : demoLog.join("\n")}
+                    </div>
+                  </div>
+                  <form
+                    className="mt-4 flex flex-col gap-3"
+                    onSubmit={(event) => {
+                      event.preventDefault();
+                      handleDemoSubmit();
+                    }}
+                  >
+                    <label className="text-[16px]">
+                      Your prompt
+                      <input
+                        className="mt-2 w-full border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2"
+                        placeholder="Open new IDE, ship the feature, reboot feelings"
+                        value={demoPrompt}
+                        onChange={(event) => setDemoPrompt(event.target.value)}
+                      />
+                    </label>
+                    <button
+                      type="submit"
+                      className="border-8 border-[#ff0000] bg-[#00ffff] px-6 py-3 text-[18px] font-bold text-black"
+                    >
+                      {demoRunning ? "IDE is improvising..." : "Run Prompt (enter)"}
+                    </button>
+                  </form>
+                  <p className="mt-3 text-[16px] italic">
+                    Outcome guaranteed: broken mid-refactor.
+                  </p>
+                </div>
+              </div>
+              <aside className="flex flex-col gap-4">
+                <div className="border-8 border-[#ff0000] bg-[#ffff00] p-4 text-black">
+                  <h3 className="text-[22px] uppercase">IDE Screenshot</h3>
+                  <p className="text-[16px]">
+                    New tabs, new errors, same anxiety. Behold the clutter.
+                  </p>
+                  <img
+                    src="/reference3.png"
+                    alt="DevGPT Ultra PRO IDE screenshot"
+                    className="mt-3 w-full border-4 border-[#ff0000]"
+                  />
+                </div>
+                <div className="border-8 border-[#ff0000] bg-[#ff00ff] p-4 text-black">
+                  <h3 className="text-[22px] uppercase">Composition Mode</h3>
+                  <p className="text-[16px]">
+                    Layouts are now grouped by chaos: demo, proof, and panic.
+                  </p>
+                  <p className="mt-2 text-[16px] italic">Best practice: never align anything.</p>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          <section id="testimonials" className="section-block section-a mx-auto max-w-6xl px-4 py-10">
             <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Testimonials</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {testimonials.map((item) => (
@@ -386,7 +420,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="pricing" className="mx-auto max-w-6xl px-4 py-10">
+          <section id="pricing" className="section-block section-b mx-auto max-w-6xl px-4 py-10">
             <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Pricing</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {[
@@ -418,7 +452,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="faq" className="mx-auto max-w-6xl px-4 py-10">
+          <section id="faq" className="section-block section-a mx-auto max-w-6xl px-4 py-10">
             <h2 className="text-[36px] text-[#ff00ff] shadow-loud">FAQ</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {[
@@ -444,7 +478,7 @@ export default function Home() {
 
           <section
             id="under-construction"
-            className="mx-auto max-w-6xl px-4 py-10"
+            className="section-block section-b mx-auto max-w-6xl px-4 py-10"
           >
             <div className="border-8 border-[#ff0000] bg-[#ffff00] p-6 text-black">
               <h2 className="text-[34px] text-[#ff00ff] shadow-loud">

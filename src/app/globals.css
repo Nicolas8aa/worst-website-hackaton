@@ -11,6 +11,48 @@ body {
   overflow-x: hidden;
 }
 
+.section-block {
+  position: relative;
+}
+
+.section-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 0, 0, 0.12),
+      rgba(255, 0, 0, 0.12) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 255, 255, 0.12),
+      rgba(0, 255, 255, 0.12) 12px,
+      transparent 12px,
+      transparent 24px
+    );
+}
+
+.section-a {
+  background: #ffffaa;
+}
+
+.section-b {
+  background: #aaffff;
+}
+
+.section-a::before {
+  opacity: 0.28;
+}
+
+.section-b::before {
+  opacity: 0.22;
+}
+
 body.dark-mode-worse {
   background: #120012;
   color: #00ff00;

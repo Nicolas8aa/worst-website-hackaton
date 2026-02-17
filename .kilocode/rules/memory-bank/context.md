@@ -28,6 +28,9 @@ The template now includes a single-page “Worst Website Ever” hackathon site 
 - [x] Moved the DevGPT Ultra PRO IDE section to the top and rewrote copy around the new IDE focus
 - [x] Updated the page structure to a more 90s-style landing layout
 - [x] Prevented dark mode hue filtering from hiding floating alerts
+- [x] Added reference screenshots to IDE sections and reorganized live demo composition
+- [x] Alternated section background colors with new striped overlays for clearer separation
+- [x] Swapped IDE section images to use new local reference1.png/reference2.png/reference3.png assets
 
 ## Current Structure
 
@@ -40,7 +43,7 @@ The template now includes a single-page “Worst Website Ever” hackathon site 
 
 ## Current Focus
 
-Current focus is refining the intentionally “worst website” experience per user guidance (90s landing layout, IDE-centric copy, and faux interactions).
+Current focus is refining the intentionally “worst website” experience per user guidance (90s landing layout, IDE-centric copy, alternating section backgrounds, and faux interactions).
 
 ## Quick Start Guide
 
@@ -102,3 +105,5 @@ export async function GET() {
 | 2026-02-16 | Compact non-sticky header, repositioned demo, longer toasts, dark mode floating fix |
 | 2026-02-16 | Fixed dark mode floating UI behavior and made IDE demo the first, full-width landing section |
 | 2026-02-17 | Reordered sections to lead with DevGPT Ultra PRO IDE, refreshed copy for the new IDE focus, and exempted floating alerts from dark-mode hue filter |
+| 2026-02-17 | Integrated uploaded screenshots, reworked live demo composition, and alternated section backgrounds |
+| 2026-02-17 | Replaced IDE section image sources with new local reference assets |
