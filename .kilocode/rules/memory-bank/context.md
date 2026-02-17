@@ -4,7 +4,7 @@
 
 **Template Status**: 🟡 In progress (worst website hackathon page built)
 
-The template now includes a single-page “Worst Website Ever” hackathon site themed around a new IDE release, with intentionally awful but responsive 90s landing page styling and chaotic UX (floating alerts, fake console demo, cookie popup, dodgy submit button, toggles).
+The template now includes a single-page "Worst Website Ever" hackathon site themed around a new IDE release, with intentionally awful but responsive 90s landing page styling and chaotic UX (floating alerts, fake console demo, cookie popup, dodgy submit button, toggles).
 
 ## Recently Completed
 
@@ -14,8 +14,8 @@ The template now includes a single-page “Worst Website Ever” hackathon site 
 - [x] ESLint configuration
 - [x] Memory bank documentation
 - [x] Recipe system for common features
-- [x] Added intentionally “bad UI/UX” homepage content about AI overbuilding
-- [x] Built the “Worst Website Ever” hackathon page with sections, chaotic layout, and faux onboarding
+- [x] Added intentionally "bad UI/UX" homepage content about AI overbuilding
+- [x] Built the "Worst Website Ever" hackathon page with sections, chaotic layout, and faux onboarding
 - [x] Added client-side interactivity for fake onboarding, toasts, cookie popup, and dark mode
 - [x] Fixed build by escaping ASCII art backticks in the under-construction section
 - [x] Reworked header sizing with a dodgy collapse button
@@ -34,9 +34,10 @@ The template now includes a single-page “Worst Website Ever” hackathon site 
 - [x] Compacted navbar, moved collapse button to bottom right, removed Top/Proof/WIP buttons, added emoji toggles for dark mode and sound
 - [x] Added patterned chaos section, construction banner strip, and "Enter Now" CTA stickers inspired by new references
 - [x] Added varied emoji-based section background patterns to avoid repeating overlays
-- [x] Updated live demo to full-width console with staged “Thinking” steps and git diff output
+- [x] Updated live demo to full-width console with staged "Thinking" steps and git diff output
 - [x] Improved section responsiveness and ensured cards render fully above background patterns
 - [x] Added mobile-friendly typography tweaks and emoji accents across UI copy
+- [x] Fixed responsive layout overflow in DevGPT Ultra PRO IDE section with proper breakpoints and overflow handling
 
 ## Current Structure
 
@@ -118,3 +119,4 @@ export async function GET() {
 | 2026-02-17 | Expanded live demo to full-width layout with delayed steps and diff-style output |
 | 2026-02-17 | Tuned card stacking + responsive typography for section layouts |
 | 2026-02-17 | Added mobile-friendly type scales and emoji accents across UI copy |
+| 2026-02-17 | Fixed responsive overflow in first section with improved breakpoints, smaller borders on mobile, and proper overflow handling |
