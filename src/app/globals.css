@@ -38,11 +38,19 @@ body {
 }
 
 .section-a {
-  background: #ffffaa;
+  background: linear-gradient(135deg, #ffffaa 0%, #ffff00 50%, #ffffee 100%);
 }
 
 .section-b {
-  background: #aaffff;
+  background: linear-gradient(135deg, #aaffff 0%, #00ffff 50%, #ccffff 100%);
+}
+
+.section-c {
+  background: linear-gradient(135deg, #ffaaff 0%, #ff00ff 50%, #ffccff 100%);
+}
+
+.section-d {
+  background: linear-gradient(135deg, #ffaaaa 0%, #ff0000 50%, #ffdddd 100%);
 }
 
 .section-a::before {
@@ -51,6 +59,14 @@ body {
 
 .section-b::before {
   opacity: 0.22;
+}
+
+.section-c::before {
+  opacity: 0.25;
+}
+
+.section-d::before {
+  opacity: 0.2;
 }
 
 body.dark-mode-worse {

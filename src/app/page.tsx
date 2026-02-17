@@ -155,42 +155,66 @@ export default function Home() {
       />
       <div className="page-shell">
         <div
-          className={`border-b-8 border-[#ff0000] bg-[#ffff00] px-4 shadow-[0_6px_0_#ff00ff] ${
-            headerCollapsed ? "py-1" : "py-2"
+          className={`border-b-4 border-[#ff0000] bg-[#ffff00] px-3 shadow-[0_4px_0_#ff00ff] ${
+            headerCollapsed ? "py-0.5" : "py-1"
           }`}
         >
-          <div className="mx-auto flex max-w-6xl flex-col gap-2">
-            <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="mx-auto flex max-w-6xl flex-col gap-1">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <div>
-                <p className="text-[14px] uppercase tracking-[4px]">
+                <p className="text-[12px] uppercase tracking-[3px]">
                   The Worst Website Ever Hackathon
                 </p>
                 <h1
                   className={`font-bold text-[#ff00ff] shadow-loud ${
-                    headerCollapsed ? "text-[22px] md:text-[28px]" : "text-[30px] md:text-[38px]"
+                    headerCollapsed ? "text-[18px] md:text-[22px]" : "text-[24px] md:text-[32px]"
                   }`}
                   style={{ fontFamily: "Impact, fantasy" }}
                 >
                   PromptOps™: The Future of Overengineering
                 </h1>
               </div>
-              <nav className="flex flex-wrap gap-2 text-[14px]">
-                <a href="#overview" className="border-4 border-[#ff0000] px-3 py-1">
-                  Start
-                </a>
-                <a href="#hero" className="border-4 border-[#ff0000] px-3 py-1">
-                  Live Demo
-                </a>
-                <a href="#pricing" className="border-4 border-[#ff0000] px-3 py-1">
-                  Pricing
-                </a>
-                <a href="#faq" className="border-4 border-[#ff0000] px-3 py-1">
-                  FAQ
-                </a>
-              </nav>
+              <div className="flex flex-wrap items-center gap-2">
+                <nav className="flex flex-wrap gap-1 text-[12px]">
+                  <a href="#overview" className="border-2 border-[#ff0000] px-2 py-0.5">
+                    Start
+                  </a>
+                  <a href="#hero" className="border-2 border-[#ff0000] px-2 py-0.5">
+                    Demo
+                  </a>
+                  <a href="#pricing" className="border-2 border-[#ff0000] px-2 py-0.5">
+                    Pricing
+                  </a>
+                  <a href="#faq" className="border-2 border-[#ff0000] px-2 py-0.5">
+                    FAQ
+                  </a>
+                </nav>
+                <button
+                  type="button"
+                  className="border-2 border-[#ff0000] bg-[#00ffff] px-2 py-0.5 text-[12px] text-black"
+                  onClick={() => setDarkMode((prev) => !prev)}
+                >
+                  {darkMode ? "🌙" : "☀️"}
+                </button>
+                <button
+                  type="button"
+                  className="border-2 border-[#ff0000] bg-[#00ffff] px-2 py-0.5 text-[12px] text-black"
+                  onClick={() => setMusicOn((prev) => !prev)}
+                >
+                  {musicOn ? "🔊" : "🔇"}
+                </button>
+              </div>
+            </div>
+            <div className="marquee border-2 border-[#ff0000] bg-[#00ffff] px-2 py-1 text-[12px] text-black">
+              <span>
+                Ship bugs at the speed of thought. • Now with 87% more
+                hallucinations. • Because reading docs is cringe. •
+              </span>
+            </div>
+            <div className="flex items-center justify-end">
               <button
                 type="button"
-                className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-1 text-[14px] text-black"
+                className="border-2 border-[#ff0000] bg-[#00ffff] px-2 py-0.5 text-[12px] text-black"
                 onMouseEnter={handleDodgyHover}
                 onMouseMove={handleDodgyHover}
                 onMouseOver={handleDodgyHover}
@@ -198,42 +222,9 @@ export default function Home() {
                 onClick={() => setHeaderCollapsed((prev) => !prev)}
                 style={{ transform: `translate(${collapseOffset.x}px, ${collapseOffset.y}px)` }}
               >
-                {headerCollapsed ? "Expand Header (if it lets you)" : "Collapse Header (good luck)"}
+                {headerCollapsed ? "⬆" : "⬇"}
               </button>
             </div>
-            <div className="flex flex-wrap items-center gap-2">
-              <button
-                type="button"
-                className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-1 text-[14px] text-black"
-                onClick={() => setDarkMode((prev) => !prev)}
-              >
-                {darkMode ? "Dark Mode: On" : "Dark Mode: Off"}
-              </button>
-              <button
-                type="button"
-                className="border-4 border-[#ff0000] bg-[#00ffff] px-3 py-1 text-[14px] text-black"
-                onClick={() => setMusicOn((prev) => !prev)}
-              >
-                Sound: {musicOn ? "On" : "Off"}
-              </button>
-            </div>
-            <div className="marquee border-4 border-[#ff0000] bg-[#00ffff] px-3 py-2 text-[14px] text-black">
-              <span>
-                Ship bugs at the speed of thought. • Now with 87% more
-                hallucinations. • Because reading docs is cringe. •
-              </span>
-            </div>
-            <nav className="flex flex-wrap gap-2 text-[14px]">
-              <a href="#overview" className="border-4 border-[#ff0000] px-3 py-1">
-                Top
-              </a>
-              <a href="#testimonials" className="border-4 border-[#ff0000] px-3 py-1">
-                Proof
-              </a>
-              <a href="#under-construction" className="border-4 border-[#ff0000] px-3 py-1">
-                WIP
-              </a>
-            </nav>
           </div>
         </div>
 
@@ -400,7 +391,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="testimonials" className="section-block section-a mx-auto max-w-6xl px-4 py-10">
+          <section id="testimonials" className="section-block section-c mx-auto max-w-6xl px-4 py-10">
             <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Testimonials</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {testimonials.map((item) => (
@@ -452,7 +443,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="faq" className="section-block section-a mx-auto max-w-6xl px-4 py-10">
+          <section id="faq" className="section-block section-d mx-auto max-w-6xl px-4 py-10">
             <h2 className="text-[36px] text-[#ff00ff] shadow-loud">FAQ</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {[
