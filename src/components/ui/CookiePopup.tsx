@@ -18,7 +18,7 @@ export function CookiePopup({ visible, onClose }: CookiePopupProps) {
 
   const handleAccept = (flavor: string) => {
     setMessage(`Accepted ${flavor} cookies.`);
-    setTimeout(onClose, 600);
+    onClose()
   };
 
   if (!visible) return null;

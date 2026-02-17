@@ -78,13 +78,13 @@ export function Header({
             </button>
           </div>
         </div>
-        <div className="marquee border-2 border-[#ff0000] bg-[#00ffff] px-2 py-1 text-[10px] text-black sm:text-[12px]">
+        <div className="marquee border-2 border-[#ff0000] bg-[#00ffff] px-2 py-1 text-[10px] text-black sm:text-[12px] mb-2">
           <span>
             Ship bugs at the speed of thought. 🚀 • Now with 87% more
             hallucinations. 🤯 • Because reading docs is cringe. 📚❌ •
           </span>
         </div>
-        <div className="hidden sm:flex items-center justify-end">
+        <div className="hidden items-center justify-end">
           <button
             type="button"
             className="border-2 border-[#ff0000] bg-[#00ffff] px-2 py-0.5 text-[12px] text-black"
