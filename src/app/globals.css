@@ -53,6 +53,10 @@ body {
   background: linear-gradient(135deg, #ffaaaa 0%, #ff0000 50%, #ffdddd 100%);
 }
 
+.section-e {
+  background: linear-gradient(135deg, #aaffaa 0%, #00ff00 50%, #ccffcc 100%);
+}
+
 .section-a::before {
   opacity: 0.28;
 }
@@ -67,6 +71,10 @@ body {
 
 .section-d::before {
   opacity: 0.2;
+}
+
+.section-e::before {
+  opacity: 0.25;
 }
 
 body.dark-mode-worse {

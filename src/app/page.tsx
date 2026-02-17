@@ -229,7 +229,8 @@ export default function Home() {
         </div>
 
         <div className="page-content">
-          <section id="overview" className="section-block section-a mx-auto max-w-6xl px-4 pb-10 pt-8">
+          <section id="overview" className="section-block section-a py-10">
+            <div className="mx-auto max-w-6xl px-4">
             <div className="grid gap-6 md:grid-cols-3">
               <div className="md:col-span-2 border-8 border-[#ff0000] bg-[#00ffff] p-6 text-black shadow-[8px_8px_0_#ff00ff]">
                 <p className="text-[18px] uppercase tracking-[4px]">
@@ -292,7 +293,7 @@ export default function Home() {
                     Now with 87% more nostalgia.
                   </p>
                   <img
-                    src="/reference1.png"
+                    src="https://placehold.co/400x300/ffff00/ff0000?text=Desktop+Chaos"
                     alt="Desktop chaos proof"
                     className="mt-3 w-full border-4 border-[#ff0000]"
                   />
@@ -309,16 +310,18 @@ export default function Home() {
                     AI sidekicks taped to your IDE with digital duct tape.
                   </p>
                   <img
-                    src="/reference2.png"
+                    src="https://placehold.co/400x200/ffff00/ff0000?text=AgentStack"
                     alt="Agent stack screenshot"
                     className="mt-3 w-full border-4 border-[#ff0000]"
                   />
                 </div>
               </div>
             </div>
+            </div>
           </section>
 
-          <section id="hero" className="section-block section-b mx-auto max-w-6xl px-4 pb-10">
+          <section id="hero" className="section-block section-c py-10">
+            <div className="mx-auto max-w-6xl px-4">
             <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
                 <h2 className="text-[36px] text-[#ff00ff] shadow-loud">
@@ -375,7 +378,7 @@ export default function Home() {
                     New tabs, new errors, same anxiety. Behold the clutter.
                   </p>
                   <img
-                    src="/reference3.png"
+                    src="https://placehold.co/400x250/ffff00/ff0000?text=IDE+Screenshot"
                     alt="DevGPT Ultra PRO IDE screenshot"
                     className="mt-3 w-full border-4 border-[#ff0000]"
                   />
@@ -389,9 +392,11 @@ export default function Home() {
                 </div>
               </aside>
             </div>
+            </div>
           </section>
 
-          <section id="testimonials" className="section-block section-c mx-auto max-w-6xl px-4 py-10">
+          <section id="testimonials" className="section-block section-b py-10">
+            <div className="mx-auto max-w-6xl px-4">
             <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Testimonials</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {testimonials.map((item) => (
@@ -409,9 +414,11 @@ export default function Home() {
                 </figure>
               ))}
             </div>
+            </div>
           </section>
 
-          <section id="pricing" className="section-block section-b mx-auto max-w-6xl px-4 py-10">
+          <section id="pricing" className="section-block section-d py-10">
+            <div className="mx-auto max-w-6xl px-4">
             <h2 className="text-[36px] text-[#ff00ff] shadow-loud">Pricing</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {[
@@ -441,9 +448,11 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            </div>
           </section>
 
-          <section id="faq" className="section-block section-d mx-auto max-w-6xl px-4 py-10">
+          <section id="faq" className="section-block section-e py-10">
+            <div className="mx-auto max-w-6xl px-4">
             <h2 className="text-[36px] text-[#ff00ff] shadow-loud">FAQ</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {[
@@ -465,12 +474,14 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            </div>
           </section>
 
           <section
             id="under-construction"
-            className="section-block section-b mx-auto max-w-6xl px-4 py-10"
+            className="section-block section-e py-10"
           >
+            <div className="mx-auto max-w-6xl px-4">
             <div className="border-8 border-[#ff0000] bg-[#ffff00] p-6 text-black">
               <h2 className="text-[34px] text-[#ff00ff] shadow-loud">
                 Under Construction
@@ -485,6 +496,7 @@ export default function Home() {
               <p className="mt-2 text-[16px]">
                 If this section ever ships, we’ll celebrate by adding more AI.
               </p>
+            </div>
             </div>
           </section>
 
