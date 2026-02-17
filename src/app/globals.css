@@ -20,6 +20,10 @@ body.dark-mode-worse .page-shell {
   filter: hue-rotate(120deg) saturate(2.2);
 }
 
+body.dark-mode-worse .floating-alert {
+  filter: none;
+}
+
 a {
   color: #00ff00;
   text-decoration: underline;
