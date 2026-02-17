@@ -32,18 +32,18 @@ export function OverviewSection() {
     <section id="overview" className="section-block section-a py-10">
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="md:col-span-2 border-8 border-[#ff0000] bg-[#00ffff] p-6 text-black shadow-[8px_8px_0_#ff00ff]">
-            <p className="text-[18px] uppercase tracking-[4px]">
+          <div className="section-card md:col-span-2 border-8 border-[#ff0000] bg-[#00ffff] p-6 text-black shadow-[8px_8px_0_#ff00ff]">
+            <p className="text-[16px] uppercase tracking-[3px] sm:text-[18px] sm:tracking-[4px]">
               NEW IDE Drop (2026) — Loud, Proud, and Over-Animated
             </p>
-            <h2 className="mt-4 text-[44px] font-extrabold text-[#ff00ff] shadow-loud md:text-[64px]">
+            <h2 className="mt-4 text-[36px] font-extrabold text-[#ff00ff] shadow-loud sm:text-[44px] md:text-[64px]">
               DevGPT Ultra PRO IDE
             </h2>
-            <p className="mt-2 text-[18px]">
+            <p className="mt-2 text-[16px] sm:text-[18px]">
               The new IDE that writes code, rewrites your roadmap, and reboots
               your feelings. Plug in. Panic faster.
             </p>
-            <div className="mt-4 flex flex-wrap gap-3 text-[16px]">
+            <div className="mt-4 flex flex-wrap gap-3 text-[14px] sm:text-[16px]">
               {badges.map((badge) => (
                 <span
                   key={badge}
@@ -53,61 +53,58 @@ export function OverviewSection() {
                 </span>
               ))}
             </div>
-            <div className="ticker mt-4 border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2 text-[16px]">
+            <div className="ticker mt-4 border-4 border-[#ff0000] bg-[#ffff00] px-3 py-2 text-[14px] sm:text-[16px]">
               <span>
                 {buzzwords.join(" • ")} • {buzzwords.join(" • ")}
               </span>
             </div>
             <button
               type="button"
-              className="mt-5 animate-[wiggle_0.4s_infinite] border-8 border-[#ff0000] bg-[#00ffff] px-6 py-3 text-[20px] font-black text-black shadow-[6px_6px_0_#ff00ff]"
+              className="mt-5 animate-[wiggle_0.4s_infinite] border-8 border-[#ff0000] bg-[#00ffff] px-4 py-3 text-[16px] font-black text-black shadow-[6px_6px_0_#ff00ff] sm:px-6 sm:text-[20px]"
               onClick={handleTrialClick}
             >
               Install IDE (free-ish)
             </button>
-            <p className="mt-3 text-[16px] italic">
+            <p className="mt-3 text-[14px] italic sm:text-[16px]">
               Your operating system will never be the same.
             </p>
             {trialMessage ? (
-              <p className="mt-2 text-[16px] font-bold text-[#ff0000]">
+              <p className="mt-2 text-[14px] font-bold text-[#ff0000] sm:text-[16px]">
                 {trialMessage}
               </p>
             ) : null}
           </div>
           <div className="flex flex-col gap-4">
             <div
-              className="border-8 border-[#ff0000] bg-[#ff00ff] p-4 text-black"
+              className="section-card border-8 border-[#ff0000] bg-[#ff00ff] p-4 text-black"
               style={{ fontFamily: "Papyrus, fantasy" }}
             >
-              <h3 className="text-[22px] uppercase">NEW! Desktop Chaos</h3>
-              <p className="text-[16px]">
+              <h3 className="text-[20px] uppercase sm:text-[22px]">
+                NEW! Desktop Chaos
+              </h3>
+              <p className="text-[14px] sm:text-[16px]">
                 Install 12 toolbars. Lose 3 pixels of screen real estate forever.
               </p>
-              <p className="blink mt-2 text-[18px] font-bold">
+              <p className="blink mt-2 text-[16px] font-bold sm:text-[18px]">
                 Now with 87% more nostalgia.
               </p>
-              <img
-                src="https://placehold.co/400x300/ffff00/ff0000?text=Desktop+Chaos"
-                alt="Desktop chaos proof"
-                className="mt-3 w-full border-4 border-[#ff0000]"
-              />
             </div>
-            <div className="border-8 border-[#ff0000] bg-[#00ffff] p-4 text-black">
-              <h3 className="text-[22px] uppercase">Painfully Efficient</h3>
-              <p className="text-[16px]">
+            <div className="section-card border-8 border-[#ff0000] bg-[#00ffff] p-4 text-black">
+              <h3 className="text-[20px] uppercase sm:text-[22px]">
+                Painfully Efficient
+              </h3>
+              <p className="text-[14px] sm:text-[16px]">
                 Boot in 15 seconds. Crash in 5. It&apos;s a speedrun.
               </p>
             </div>
-            <div className="border-8 border-[#ff0000] bg-[#ffff00] p-4 text-black">
-              <h3 className="text-[22px] uppercase">AgentStack 9000</h3>
-              <p className="text-[16px]">
+            <div className="section-card border-8 border-[#ff0000] bg-[#ffff00] p-4 text-black">
+              <h3 className="text-[20px] uppercase sm:text-[22px]">
+                AgentStack 9000
+              </h3>
+              <p className="text-[14px] sm:text-[16px]">
                 AI sidekicks taped to your IDE with digital duct tape.
               </p>
-              <img
-                src="https://placehold.co/400x200/ffff00/ff0000?text=AgentStack"
-                alt="Agent stack screenshot"
-                className="mt-3 w-full border-4 border-[#ff0000]"
-              />
+              
             </div>
           </div>
         </div>

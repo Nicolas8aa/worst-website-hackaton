@@ -33,8 +33,8 @@ export function Header({
       <div className="mx-auto flex max-w-6xl flex-col gap-1">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <p className="text-[12px] uppercase tracking-[3px]">
-              The Worst Website Ever Hackathon
+            <p className="text-[10px] uppercase tracking-[2px] sm:text-[12px] sm:tracking-[3px]">
+              The Worst Website Ever Hackathon 🧪
             </p>
             <h1
               className={`font-bold text-[#ff00ff] shadow-loud ${
@@ -42,44 +42,44 @@ export function Header({
               }`}
               style={{ fontFamily: "Impact, fantasy" }}
             >
-              PromptOps™: The Future of Overengineering
+              PromptOps™: The Future of Overengineering 🚧
             </h1>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <nav className="flex flex-wrap gap-1 text-[12px]">
+            <nav className="flex flex-wrap gap-1 text-[10px] sm:text-[12px]">
               <a href="#overview" className="border-2 border-[#ff0000] px-2 py-0.5">
-                Start
+                Start 🚀
               </a>
               <a href="#hero" className="border-2 border-[#ff0000] px-2 py-0.5">
-                Demo
+                Demo 🎛️
               </a>
               <a href="#pricing" className="border-2 border-[#ff0000] px-2 py-0.5">
-                Pricing
+                Pricing 💸
               </a>
               <a href="#faq" className="border-2 border-[#ff0000] px-2 py-0.5">
-                FAQ
+                FAQ ❓
               </a>
             </nav>
             <button
               type="button"
-              className="border-2 border-[#ff0000] bg-[#00ffff] px-2 py-0.5 text-[12px] text-black"
+              className="border-2 border-[#ff0000] bg-[#00ffff] px-2 py-0.5 text-[10px] text-black sm:text-[12px]"
               onClick={onDarkModeToggle}
             >
               {darkMode ? "🌙" : "☀️"}
             </button>
             <button
               type="button"
-              className="border-2 border-[#ff0000] bg-[#00ffff] px-2 py-0.5 text-[12px] text-black"
+              className="border-2 border-[#ff0000] bg-[#00ffff] px-2 py-0.5 text-[10px] text-black sm:text-[12px]"
               onClick={onMusicToggle}
             >
               {musicOn ? "🔊" : "🔇"}
             </button>
           </div>
         </div>
-        <div className="marquee border-2 border-[#ff0000] bg-[#00ffff] px-2 py-1 text-[12px] text-black">
+        <div className="marquee border-2 border-[#ff0000] bg-[#00ffff] px-2 py-1 text-[10px] text-black sm:text-[12px]">
           <span>
-            Ship bugs at the speed of thought. • Now with 87% more
-            hallucinations. • Because reading docs is cringe. •
+            Ship bugs at the speed of thought. 🚀 • Now with 87% more
+            hallucinations. 🤯 • Because reading docs is cringe. 📚❌ •
           </span>
         </div>
         <div className="flex items-center justify-end">

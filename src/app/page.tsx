@@ -97,7 +97,7 @@ export default function Home() {
           <TestimonialsSection />
           <PricingSection />
           <FAQSection />
-          <UnderConstructionSection />
+          {/* <UnderConstructionSection /> */}
           <Footer />
         </div>
       </div>
