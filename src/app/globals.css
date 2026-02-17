@@ -15,23 +15,74 @@ body {
   position: relative;
 }
 
+/* Emoji background patterns for each section */
+.section-a::before {
+  content: "💻 ⌨️ 🖱️ 💾 💿 📀 🔌 ⚡ 🔧 🛠️ 💻 ⌨️ 🖱️ 💾 💿 📀 🔌 ⚡ 🔧 🛠️ ";
+  font-size: 20px;
+  line-height: 2.2;
+  white-space: nowrap;
+  overflow: hidden;
+  background-size: 200px 44px;
+  animation: emojiScroll 20s linear infinite;
+}
+
+.section-b::before {
+  content: "⭐ 🌟 ✨ 💫 🔥 💯 🙌 👏 🎉 🏆 ⭐ 🌟 ✨ 💫 🔥 💯 🙌 👏 🎉 🏆 ";
+  font-size: 22px;
+  line-height: 2.4;
+  white-space: nowrap;
+  overflow: hidden;
+  background-size: 220px 48px;
+  animation: emojiScrollReverse 25s linear infinite;
+}
+
+.section-c::before {
+  content: "🚀 🛸 🌌 🪐 🌠 ⭐ 🔮 ✨ 🎯 💡 🚀 🛸 🌌 🪐 🌠 ⭐ 🔮 ✨ 🎯 💡 ";
+  font-size: 24px;
+  line-height: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  background-size: 240px 48px;
+  animation: emojiScroll 18s linear infinite;
+}
+
+.section-d::before {
+  content: "💰 💵 💳 🏦 💳 💸 💎 💰 💵 📈 💰 💵 💳 🏦 💳 💸 💎 💰 💵 📈 ";
+  font-size: 20px;
+  line-height: 2.2;
+  white-space: nowrap;
+  overflow: hidden;
+  background-size: 200px 44px;
+  animation: emojiScrollReverse 22s linear infinite;
+}
+
+.section-e::before {
+  content: "🔨 🏗️ ⚠️ 🚧 🛑 🪚 🔧 🛠️ 🏗️ 🔨 🔨 🏗️ ⚠️ 🚧 🛑 🪚 🔧 🛠️ 🏗️ 🔨 ";
+  font-size: 22px;
+  line-height: 2.2;
+  white-space: nowrap;
+  overflow: hidden;
+  background-size: 220px 44px;
+  animation: emojiScroll 15s linear infinite;
+}
+
 .section-block::before {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.35;
+  opacity: 0.18;
   pointer-events: none;
   background-image: repeating-linear-gradient(
       45deg,
-      rgba(255, 0, 0, 0.12),
-      rgba(255, 0, 0, 0.12) 10px,
+      rgba(255, 0, 0, 0.1),
+      rgba(255, 0, 0, 0.1) 10px,
       transparent 10px,
       transparent 20px
     ),
     repeating-linear-gradient(
       -45deg,
-      rgba(0, 255, 255, 0.12),
-      rgba(0, 255, 255, 0.12) 12px,
+      rgba(0, 255, 255, 0.1),
+      rgba(0, 255, 255, 0.1) 12px,
       transparent 12px,
       transparent 24px
     );
@@ -41,40 +92,45 @@ body {
   background: linear-gradient(135deg, #ffffaa 0%, #ffff00 50%, #ffffee 100%);
 }
 
+.section-a::before {
+  opacity: 0.15;
+  color: #ff0000;
+}
+
 .section-b {
   background: linear-gradient(135deg, #aaffff 0%, #00ffff 50%, #ccffff 100%);
+}
+
+.section-b::before {
+  opacity: 0.12;
+  color: #ff00ff;
 }
 
 .section-c {
   background: linear-gradient(135deg, #ffaaff 0%, #ff00ff 50%, #ffccff 100%);
 }
 
+.section-c::before {
+  opacity: 0.14;
+  color: #0000ff;
+}
+
 .section-d {
   background: linear-gradient(135deg, #ffaaaa 0%, #ff0000 50%, #ffdddd 100%);
+}
+
+.section-d::before {
+  opacity: 0.16;
+  color: #ffff00;
 }
 
 .section-e {
   background: linear-gradient(135deg, #aaffaa 0%, #00ff00 50%, #ccffcc 100%);
 }
 
-.section-a::before {
-  opacity: 0.28;
-}
-
-.section-b::before {
-  opacity: 0.22;
-}
-
-.section-c::before {
-  opacity: 0.25;
-}
-
-.section-d::before {
-  opacity: 0.2;
-}
-
 .section-e::before {
-  opacity: 0.25;
+  opacity: 0.14;
+  color: #ff0000;
 }
 
 body.dark-mode-worse {
@@ -160,6 +216,24 @@ a {
   }
   50% {
     transform: rotate(1deg) translateY(-2px);
+  }
+}
+
+@keyframes emojiScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes emojiScrollReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
