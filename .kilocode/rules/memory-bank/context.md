@@ -31,6 +31,7 @@ The template now includes a single-page “Worst Website Ever” hackathon site 
 - [x] Added reference screenshots to IDE sections and reorganized live demo composition
 - [x] Alternated section background colors with new striped overlays for clearer separation
 - [x] Swapped IDE section images to use new local reference1.png/reference2.png/reference3.png assets
+- [x] Compacted navbar, moved collapse button to bottom right, removed Top/Proof/WIP buttons, added emoji toggles for dark mode and sound
 
 ## Current Structure
 
