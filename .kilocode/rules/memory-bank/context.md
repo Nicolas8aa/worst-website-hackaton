@@ -45,6 +45,9 @@ The template now includes a single-page "Worst Website Ever" hackathon site them
 - [x] Implemented button shake animation and blinking cursor during AI thinking
 - [x] Improved mobile navbar with larger touch targets and better spacing
 - [x] Added Blue Screen of Death component with Lottie skeleton animation
+- [x] Fixed background music cleanup and migrated to custom hooks for better code organization
+- [x] Created custom hooks: useBackgroundMusic, useDarkMode, useToastMessages, useCookiePopup
+- [x] Simplified Home component by extracting all side effects into reusable hooks
 
 ## Current Structure
 
@@ -132,3 +135,4 @@ export async function GET() {
 | 2026-02-17 | Created centralized SITE_CONFIG constant and updated all references across the site |
 | 2026-02-17 | Added live demo crash feature with warning system, button shake animation, blinking cursor, and Blue Screen with Lottie animation |
 | 2026-02-17 | Improved mobile navbar with larger buttons (px-3 py-1.5) and better touch targets |
+| 2026-02-17 | Refactored Home component by extracting logic into custom hooks (useBackgroundMusic, useDarkMode, useToastMessages, useCookiePopup) |
