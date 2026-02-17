@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Header, Footer, Toast, CookiePopup, ChatWidget, BackToTop } from "@/components/ui";
+import { Header, Footer, Toast, CookiePopup, ChatWidget, BackToTop, BlueScreen } from "@/components/ui";
 import {
   OverviewSection,
   LiveDemoSection,
@@ -15,7 +15,6 @@ const toastMessages = [
   "Ai is eating your ram, good luck building your new pc!",
   "Water does not matter, if we are able to create will smith eating spagetti",
   "Hey, check the white house, is on fire!! xd",
-  "Your moral compass was refactored into TODOs.",
   "Good news: the AI deleted your bugs. Bad news: it deleted your tests.",
 ];
 
@@ -27,6 +26,7 @@ export default function Home() {
   const [chatVisible, setChatVisible] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
   const [musicOn, setMusicOn] = useState(false);
+  const [crashed, setCrashed] = useState(false);
 
   useEffect(() => {
     document.body.classList.toggle("dark-mode-worse", darkMode);
@@ -93,7 +93,7 @@ export default function Home() {
 
         <div className="page-content">
           <OverviewSection />
-          <LiveDemoSection />
+          <LiveDemoSection onCrash={() => setCrashed(true)} />
           <TestimonialsSection />
           <PricingSection />
           <FAQSection />
@@ -102,13 +102,14 @@ export default function Home() {
         </div>
       </div>
 
-      <ChatWidget visible={chatVisible} onClose={() => setChatVisible(false)} />
+      {/* <ChatWidget visible={chatVisible} onClose={() => setChatVisible(false)} /> */}
       <Toast message={toastMessage} visible={toastVisible} />
       <BackToTop />
       <CookiePopup
         visible={cookieVisible}
         onClose={() => setCookieVisible(false)}
       />
+      <BlueScreen visible={crashed} />
     </main>
   );
 }

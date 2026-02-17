@@ -38,6 +38,13 @@ The template now includes a single-page "Worst Website Ever" hackathon site them
 - [x] Improved section responsiveness and ensured cards render fully above background patterns
 - [x] Added mobile-friendly typography tweaks and emoji accents across UI copy
 - [x] Fixed responsive layout overflow in DevGPT Ultra PRO IDE section with proper breakpoints and overflow handling
+- [x] Restructured Overview section layout with progressive border/shadow scaling to eliminate overflow
+- [x] Added comprehensive site metadata (title, description, OpenGraph, Twitter cards, theme color)
+- [x] Created centralized site configuration in src/lib/constants.ts for easy title management
+- [x] Added interactive live demo features: warning after first prompt, crash on second prompt with blue screen
+- [x] Implemented button shake animation and blinking cursor during AI thinking
+- [x] Improved mobile navbar with larger touch targets and better spacing
+- [x] Added Blue Screen of Death component with Lottie skeleton animation
 
 ## Current Structure
 
@@ -120,3 +127,8 @@ export async function GET() {
 | 2026-02-17 | Tuned card stacking + responsive typography for section layouts |
 | 2026-02-17 | Added mobile-friendly type scales and emoji accents across UI copy |
 | 2026-02-17 | Fixed responsive overflow in first section with improved breakpoints, smaller borders on mobile, and proper overflow handling |
+| 2026-02-17 | Restructured Overview section with progressive scaling (3px→8px borders) and max-width constraints to eliminate overflow |
+| 2026-02-17 | Added comprehensive Next.js metadata including OpenGraph, Twitter cards, and theme color for the hackathon site |
+| 2026-02-17 | Created centralized SITE_CONFIG constant and updated all references across the site |
+| 2026-02-17 | Added live demo crash feature with warning system, button shake animation, blinking cursor, and Blue Screen with Lottie animation |
+| 2026-02-17 | Improved mobile navbar with larger buttons (px-3 py-1.5) and better touch targets |

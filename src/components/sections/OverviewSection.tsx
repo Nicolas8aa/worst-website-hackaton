@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SITE_CONFIG } from "@/lib/constants";
 
 const buzzwords = [
   "PromptOps",
@@ -37,7 +38,7 @@ export function OverviewSection() {
               NEW IDE Drop (2026) — Loud, Proud, and Over-Animated
             </p>
             <h2 className="mt-4 text-[28px] font-extrabold text-[#ff00ff] shadow-loud sm:text-[36px] md:text-[48px] lg:text-[64px] break-words">
-              DevGPT Ultra PRO IDE
+              {SITE_CONFIG.name}
             </h2>
             <p className="mt-2 text-[14px] sm:text-[16px] md:text-[18px]">
               The new IDE that writes code, rewrites your roadmap, and reboots
